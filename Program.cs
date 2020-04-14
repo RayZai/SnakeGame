@@ -89,11 +89,11 @@ namespace Snake
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo userInput = Console.ReadKey();
-					if (userInput.Key == ConsoleKey.LeftArrow)
+					if (userInput.Key == ConsoleKey.LeftArrow) //if direction isnt equal to right it will move left
 					{
 						if (direction != right) direction = left;
 					}
-					if (userInput.Key == ConsoleKey.RightArrow)
+					if (userInput.Key == ConsoleKey.RightArrow) //if right arrow click it will move to the right
 					{
 						if (direction != left) direction = right;
 					}
@@ -137,8 +137,8 @@ namespace Snake
 				snakeElements.Enqueue(snakeNewHead);
 				Console.SetCursorPosition(snakeNewHead.col, snakeNewHead.row);
 				Console.ForegroundColor = ConsoleColor.Gray;
-				if (direction == right) Console.Write(">");
-				if (direction == left) Console.Write("<");
+				if (direction == right) Console.Write(">"); //direction for snake moving right 
+				if (direction == left) Console.Write("<");//direction for snake moving left and so forth
 				if (direction == up) Console.Write("^");
 				if (direction == down) Console.Write("v");
 

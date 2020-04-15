@@ -185,7 +185,7 @@ namespace Snake
 				//when timer counter between eating last food is higher than default food dissapear time
 				if (Environment.TickCount - lastFoodTime >= foodDissapearTime)
 				{
-					//increase user point by 50 if user take too long to eat the food
+					//decrease user score by 50 if user take too long to eat the food
 					//delete the food
 					negativePoints = negativePoints + 50;
 					Console.SetCursorPosition(food.col, food.row);

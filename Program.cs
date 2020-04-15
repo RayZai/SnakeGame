@@ -7,10 +7,13 @@ using System.Threading;
 
 namespace Snake
 {
+	//Structure Entity called Position
 	struct Position
 	{
+		//The attributes of Position
 		public int row;
 		public int col;
+		//Constructor for Position
 		public Position(int row, int col)
 		{
 			this.row = row;
@@ -22,6 +25,7 @@ namespace Snake
 	{
 		static void Main(string[] args)
 		{
+			//Initializing variables
 			byte right = 0;
 			byte left = 1;
 			byte down = 2;
@@ -30,19 +34,31 @@ namespace Snake
 			int foodDissapearTime = 8000;
 			int negativePoints = 0;
 
+			//A array of Position entities called directions
+			//defining the direction that the snake can move
 			Position[] directions = new Position[]
 			{
 				new Position(0, 1), // right
+
                 new Position(0, -1), // left
                 new Position(1, 0), // down
                 new Position(-1, 0), // up
             };
+
+			//Initializing variables
+
+               		        new Position(0, -1), // left
+              		        new Position(1, 0), // down
+                                new Position(-1, 0), // up
+                        };
+
 			double sleepTime = 100;
 			int direction = right;
 			Random randomNumbersGenerator = new Random();
 			Console.BufferHeight = Console.WindowHeight;
 			lastFoodTime = Environment.TickCount;
 
+			//A list of Positions entity that contain the positions of the obstacle
 			List<Position> obstacles = new List<Position>()
 			{
 				new Position(12, 12),
@@ -51,6 +67,7 @@ namespace Snake
 				new Position(19, 19),
 				new Position(6, 9),
 			};
+			//Displaying the obstacles
 			foreach (Position obstacle in obstacles)
 			{
 				Console.ForegroundColor = ConsoleColor.Cyan;
@@ -58,12 +75,15 @@ namespace Snake
 				Console.Write("=");
 			}
 
+			//creating the snake and putting the coordinates into queue
 			Queue<Position> snakeElements = new Queue<Position>();
 			for (int i = 0; i <= 5; i++)
 			{
 				snakeElements.Enqueue(new Position(0, i));
 			}
 
+			//Creating position for the food and displaying it
+			//The loop continues until the food element is not in snakeElements or obstacles
 			Position food;
 			do
 			{
@@ -75,6 +95,7 @@ namespace Snake
 			Console.ForegroundColor = ConsoleColor.Yellow;
 			Console.Write("@");
 
+			//Displaying the snake
 			foreach (Position position in snakeElements)
 			{
 				Console.SetCursorPosition(position.col, position.row);
@@ -89,11 +110,11 @@ namespace Snake
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo userInput = Console.ReadKey();
-					if (userInput.Key == ConsoleKey.LeftArrow)
+					if (userInput.Key == ConsoleKey.LeftArrow) //if direction isnt equal to right it will move left
 					{
 						if (direction != right) direction = left;
 					}
-					if (userInput.Key == ConsoleKey.RightArrow)
+					if (userInput.Key == ConsoleKey.RightArrow) //if right arrow click it will move to the right
 					{
 						if (direction != left) direction = right;
 					}
@@ -137,8 +158,8 @@ namespace Snake
 				snakeElements.Enqueue(snakeNewHead);
 				Console.SetCursorPosition(snakeNewHead.col, snakeNewHead.row);
 				Console.ForegroundColor = ConsoleColor.Gray;
-				if (direction == right) Console.Write(">");
-				if (direction == left) Console.Write("<");
+				if (direction == right) Console.Write(">"); //direction for snake moving right 
+				if (direction == left) Console.Write("<");//direction for snake moving left and so forth
 				if (direction == up) Console.Write("^");
 				if (direction == down) Console.Write("v");
 

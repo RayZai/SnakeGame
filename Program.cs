@@ -45,13 +45,6 @@ namespace Snake
                 new Position(-1, 0), // up
             };
 
-			//Initializing variables
-
-               		        new Position(0, -1), // left
-              		        new Position(1, 0), // down
-                                new Position(-1, 0), // up
-                        };
-
 			double sleepTime = 100;
 			int direction = right;
 			Random randomNumbersGenerator = new Random();

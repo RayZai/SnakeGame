@@ -208,7 +208,6 @@ namespace Snake
 				{
 					//increase user point by 50 if user take too long to eat the food
 					//delete the food
-					//should be - instead of + 
 					negativePoints = negativePoints + 50;
 					Console.SetCursorPosition(food.col, food.row);
 					Console.Write(" ");

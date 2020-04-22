@@ -31,7 +31,7 @@ namespace Snake
 			byte down = 2;
 			byte up = 3;
 			int lastFoodTime = 0;
-			int foodDissapearTime = 8000;
+			int foodDissapearTime = 15000;
 			int negativePoints = 0;
 
 			//A array of Position entities called directions
@@ -53,11 +53,17 @@ namespace Snake
 			//A list of Positions entity that contain the positions of the obstacle
 			List<Position> obstacles = new List<Position>()
 			{
-				new Position(12, 12),
-				new Position(14, 20),
-				new Position(7, 7),
-				new Position(19, 19),
-				new Position(6, 9),
+				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+							randomNumbersGenerator.Next(0, Console.WindowWidth)),
+				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+							randomNumbersGenerator.Next(0, Console.WindowWidth)),
+				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+							randomNumbersGenerator.Next(0, Console.WindowWidth)),
+				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+							randomNumbersGenerator.Next(0, Console.WindowWidth)),
+				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+							randomNumbersGenerator.Next(0, Console.WindowWidth)),
+
 			};
 			//Displaying the obstacles
 			foreach (Position obstacle in obstacles)
@@ -69,7 +75,7 @@ namespace Snake
 
 			//creating the snake and putting the coordinates into queue
 			Queue<Position> snakeElements = new Queue<Position>();
-			for (int i = 0; i <= 5; i++)
+			for (int i = 0; i <= 3; i++)
 			{
 				snakeElements.Enqueue(new Position(0, i));
 			}

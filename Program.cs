@@ -149,17 +149,20 @@ namespace Snake
 					Console.WriteLine("Your points are: {0}", userPoints);
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
-					string msg = name + " " + userPoints;
-					File.WriteAllText("score.txt", msg);
+					string LMsg = name + " " + userPoints + "\n";
+					File.AppendAllText("score.txt", LMsg);
 					return;
+					
 				}else if(userPoints > 500)
 				{
 					Console.SetCursorPosition(0, 0);
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("You Win!");
 					Console.WriteLine("Your points are: {0}", userPoints);
-					string msg = name + " " + userPoints;
-					File.WriteAllText("score.txt", msg);
+					Console.Write("Enter your name: ");
+					string name = Console.ReadLine();
+					string WMsg = name + " " + userPoints + "\n";
+					File.AppendAllText("score.txt", WMsg);
 					return;
 
 				}

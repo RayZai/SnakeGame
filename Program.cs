@@ -213,6 +213,10 @@ namespace Snake
 					//refresh last food eat time timer counter 
 					lastFoodTime = Environment.TickCount;
 				}
+				Console.SetCursorPosition(0, 0);
+				int userPoint = (snakeElements.Count - 6) * 100 - negativePoints;
+				string msg = "Highscore: " + userPoint;
+				Console.Write(msg);
 
 				Console.SetCursorPosition(food.col, food.row);
 				Console.ForegroundColor = ConsoleColor.Yellow;

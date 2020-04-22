@@ -127,20 +127,28 @@ namespace Snake
 					snakeHead.col + nextDirection.col);
 
 				if (snakeNewHead.col < 0) snakeNewHead.col = Console.WindowWidth - 1;
-				if (snakeNewHead.row < 0) snakeNewHead.row = Console.WindowHeight - 1;
-				if (snakeNewHead.row >= Console.WindowHeight) snakeNewHead.row = 0;
+				if (snakeNewHead.row < 1) snakeNewHead.row = Console.WindowHeight - 1;
+				if (snakeNewHead.row >= Console.WindowHeight) snakeNewHead.row = 1;
 				if (snakeNewHead.col >= Console.WindowWidth) snakeNewHead.col = 0;
 
+				int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
+				//if (userPoints < 0) userPoints = 0;
+				userPoints = Math.Max(userPoints, 0);
 				if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
 				{
 					Console.SetCursorPosition(0, 0);
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Game over!");
-					int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
-					//if (userPoints < 0) userPoints = 0;
-					userPoints = Math.Max(userPoints, 0);
 					Console.WriteLine("Your points are: {0}", userPoints);
 					return;
+				}else if(userPoints > 500)
+				{
+					Console.SetCursorPosition(0, 0);
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("You Win!");
+					Console.WriteLine("Your points are: {0}", userPoints);
+					return;
+
 				}
 
 				Console.SetCursorPosition(snakeHead.col, snakeHead.row);
@@ -213,6 +221,9 @@ namespace Snake
 					//refresh last food eat time timer counter 
 					lastFoodTime = Environment.TickCount;
 				}
+
+				Console.SetCursorPosition(0, 0);
+				Console.Write(userPoints);
 
 				Console.SetCursorPosition(food.col, food.row);
 				Console.ForegroundColor = ConsoleColor.Yellow;

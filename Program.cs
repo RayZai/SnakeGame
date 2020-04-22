@@ -131,6 +131,7 @@ namespace Snake
 				if (snakeNewHead.row >= Console.WindowHeight) snakeNewHead.row = 1;
 				if (snakeNewHead.col >= Console.WindowWidth) snakeNewHead.col = 0;
 
+				//Displaying the score
 				int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
 				//if (userPoints < 0) userPoints = 0;
 				userPoints = Math.Max(userPoints, 0);
@@ -151,6 +152,8 @@ namespace Snake
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("You Win!");
 					Console.WriteLine("Your points are: {0}", userPoints);
+					string msg = name + " " + userPoints;
+					File.WriteAllText("score.txt", msg);
 					return;
 
 				}
@@ -225,13 +228,11 @@ namespace Snake
 					//refresh last food eat time timer counter 
 					lastFoodTime = Environment.TickCount;
 				}
+				
 				Console.SetCursorPosition(0, 0);
 				int userPoint = (snakeElements.Count - 6) * 100 - negativePoints;
 				string msg = "Highscore: " + userPoint;
 				Console.Write(msg);
-
-				Console.SetCursorPosition(0, 0);
-				Console.Write(userPoints);
 
 				Console.SetCursorPosition(food.col, food.row);
 				Console.ForegroundColor = ConsoleColor.Yellow;

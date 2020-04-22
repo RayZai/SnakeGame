@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Threading;
-
+using System.IO;
 namespace Snake
 {
 	//Structure Entity called Position
@@ -140,6 +140,10 @@ namespace Snake
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Game over!");
 					Console.WriteLine("Your points are: {0}", userPoints);
+					Console.Write("Enter your name: ");
+					string name = Console.ReadLine();
+					string msg = name + " " + userPoints;
+					File.WriteAllText("score.txt", msg);
 					return;
 				}else if(userPoints > 500)
 				{

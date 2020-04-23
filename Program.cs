@@ -250,7 +250,12 @@ namespace Snake
 					lastFoodTime = Environment.TickCount;
 				}
 				
-				//Displaying the Score during play time
+				//This will clear the previous score shown then display the new score
+				for (int i = 0; i < 13;i++)
+				{
+					Console.SetCursorPosition(i, 0);
+					Console.Write(" ");
+				}
 				Console.SetCursorPosition(0, 0);
 				string msg = "Score: " + userPoints;
 				Console.Write(msg);

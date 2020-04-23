@@ -149,7 +149,7 @@ namespace Snake
 				userPoints = Math.Max(userPoints, 0);
 				if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
 				{
-					Console.SetCursorPosition(0, 0);
+					Console.SetCursorPosition( 55 , 15); //set to center position
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Game over!");
 					Console.WriteLine("Your points are: {0}", userPoints);
@@ -161,7 +161,7 @@ namespace Snake
 					
 				}else if(userPoints > 500)
 				{
-					Console.SetCursorPosition(0, 0);
+					Console.SetCursorPosition( 55 , 15  );
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("You Win!");
 					Console.WriteLine("Your points are: {0}", userPoints);

@@ -153,6 +153,7 @@ namespace Snake
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Game over!");
 					Console.WriteLine("Your points are: {0}", userPoints);
+					//Asks the user for name then the name and score will be stored in a text file
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
 					string LMsg = name + " " + userPoints + "\n";
@@ -160,13 +161,14 @@ namespace Snake
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;
-					
+				//If the userPoints is more than 500, then the user wins	
 				}else if(userPoints > 500)
 				{
 					Console.SetCursorPosition(0, 0);
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("You Win!");
 					Console.WriteLine("Your points are: {0}", userPoints);
+					//Asks the user for name then the name and score will be stored in a text file
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
 					string WMsg = name + " " + userPoints + "\n";
@@ -248,9 +250,9 @@ namespace Snake
 					lastFoodTime = Environment.TickCount;
 				}
 				
+				//Displaying the Score during play time
 				Console.SetCursorPosition(0, 0);
-				int userPoint = (snakeElements.Count - 6) * 100 - negativePoints;
-				string msg = "Highscore: " + userPoint;
+				string msg = "Score: " + userPoints;
 				Console.Write(msg);
 
 				Console.SetCursorPosition(food.col, food.row);

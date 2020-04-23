@@ -102,6 +102,11 @@ namespace Snake
 			}
 
 			
+				
+			//adding background song to game
+			SoundPlayer player = new SoundPlayer();
+			player.SoundLocation = .mp3; //adding song of choice based on directory
+			player.Play();
 			
 		
 			

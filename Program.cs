@@ -152,12 +152,15 @@ namespace Snake
 					Console.SetCursorPosition( 55 , 15); //set to center position
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Game over!");
+					Console.SetCursorPosition( 55 , 16);
 					Console.WriteLine("Your points are: {0}", userPoints);
 					//Asks the user for name then the name and score will be stored in a text file
+					Console.SetCursorPosition( 55 , 17);
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
 					string LMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", LMsg);
+					Console.SetCursorPosition( 55 , 18);
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;
@@ -167,12 +170,15 @@ namespace Snake
 					Console.SetCursorPosition( 55 , 15  );
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("You Win!");
+					Console.SetCursorPosition( 55 , 16  );
 					Console.WriteLine("Your points are: {0}", userPoints);
 					//Asks the user for name then the name and score will be stored in a text file
+					Console.SetCursorPosition( 55 , 17  );
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
 					string WMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", WMsg);
+					Console.SetCursorPosition( 55 , 18  );
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;

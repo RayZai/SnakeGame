@@ -157,7 +157,6 @@ namespace Snake
 					string name = Console.ReadLine();
 					string LMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", LMsg);
-					Console.WriteLine("Press a to pause the screen");
 					Console.WriteLine('Press enter to exit");
 					Console.ReadLine();
 					return;
@@ -172,7 +171,6 @@ namespace Snake
 					string name = Console.ReadLine();
 					string WMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", WMsg);
-					Console.WriteLine("Press a to pause the screen");
 					Console.WriteLine('Press enter to exit");
 					Console.ReadLine();
 					return;

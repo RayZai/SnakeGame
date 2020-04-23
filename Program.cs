@@ -53,15 +53,15 @@ namespace Snake
 			//A list of Positions entity that contain the positions of the obstacle
 			List<Position> obstacles = new List<Position>()
 			{
-				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+				new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth)),
-				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+				new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth)),
-				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+				new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth)),
-				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+				new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth)),
-				new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+				new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth)),
 
 			};
@@ -85,7 +85,7 @@ namespace Snake
 			Position food;
 			do
 			{
-				food = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+				food = new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 					randomNumbersGenerator.Next(0, Console.WindowWidth));
 			}
 			while (snakeElements.Contains(food) || obstacles.Contains(food));
@@ -198,7 +198,7 @@ namespace Snake
 					//create new food position object until position is not overlapping snake or obstacle
 					do
 					{
-						food = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+						food = new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth));
 					}
 					while (snakeElements.Contains(food) || obstacles.Contains(food));
@@ -212,7 +212,7 @@ namespace Snake
 					Position obstacle = new Position();
 					do
 					{
-						obstacle = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+						obstacle = new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth));
 					}
 					while (snakeElements.Contains(obstacle) ||
@@ -242,7 +242,7 @@ namespace Snake
 					//create new food position until no overlapping with obstacle and snake
 					do
 					{
-						food = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
+						food = new Position(randomNumbersGenerator.Next(1, Console.WindowHeight),
 							randomNumbersGenerator.Next(0, Console.WindowWidth));
 					}
 					while (snakeElements.Contains(food) || obstacles.Contains(food));

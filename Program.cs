@@ -23,17 +23,13 @@ namespace Snake
 
 	class Program
 	{
-		
-		
-
-		
-		
 		static void Main(string[] args)
 		{
 			//adds background music to game
 			var myPlayer = new System.Media.SoundPlayer();
-			myPlayer.SoundLocation = @"c:\Users\hansl\Desktop\SnakeGame-master\Properties\bgmusic.wav";
+			myPlayer.SoundLocation = @"bgmusic.wav";
 			myPlayer.Play();
+			myPlayer.PlayLooping();
 			
 			//Initializing variables
 			byte right = 0;

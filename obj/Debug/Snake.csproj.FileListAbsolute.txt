@@ -4,3 +4,9 @@ C:\Users\USER\Desktop\SnakeGame\bin\Debug\Snake.pdb
 C:\Users\USER\Desktop\SnakeGame\obj\Debug\Snake.csprojAssemblyReference.cache
 C:\Users\USER\Desktop\SnakeGame\obj\Debug\Snake.exe
 C:\Users\USER\Desktop\SnakeGame\obj\Debug\Snake.pdb
+C:\Users\Emmanuel\Desktop\SnakeGame\bin\Debug\Snake.exe.config
+C:\Users\Emmanuel\Desktop\SnakeGame\bin\Debug\Snake.exe
+C:\Users\Emmanuel\Desktop\SnakeGame\bin\Debug\Snake.pdb
+C:\Users\Emmanuel\Desktop\SnakeGame\obj\Debug\Snake.csprojAssemblyReference.cache
+C:\Users\Emmanuel\Desktop\SnakeGame\obj\Debug\Snake.exe
+C:\Users\Emmanuel\Desktop\SnakeGame\obj\Debug\Snake.pdb

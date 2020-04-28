@@ -30,8 +30,9 @@ namespace Snake
 			myPlayer.SoundLocation = @"bgmusic.wav";
 			myPlayer.Play();
 			myPlayer.PlayLooping();
-			
+
 			//Initializing variables
+			bool superFood = false;
 			byte right = 0;
 			byte left = 1;
 			byte down = 2;
@@ -202,10 +203,10 @@ namespace Snake
 				if (direction == left) Console.Write("<");//direction for snake moving left and so forth
 				if (direction == up) Console.Write("^");
 				if (direction == down) Console.Write("v");
-
 				//check snakehead overlapping food position
 				if (snakeNewHead.col == food.col && snakeNewHead.row == food.row)
 				{
+					
 					// feeding the snake
 					//create new food position object until position is not overlapping snake or obstacle
 					do
@@ -214,11 +215,26 @@ namespace Snake
 							randomNumbersGenerator.Next(0, Console.WindowWidth));
 					}
 					while (snakeElements.Contains(food) || obstacles.Contains(food));
+					//more point is super food
+					if (superFood == true)
+					{
+						negativePoints -= 200;
+						superFood = false;
+					}
 					//refresh last food eat time timer counter 
 					lastFoodTime = Environment.TickCount;
 					Console.SetCursorPosition(food.col, food.row);
 					Console.ForegroundColor = ConsoleColor.Yellow;
-					Console.Write("@");
+					int randomNumber = randomNumbersGenerator.Next(0,11);
+					if (randomNumber %2== 0)
+					{
+						superFood = true;
+						Console.Write("$");
+					}
+					else
+					{
+						Console.Write("@");
+					}
 					sleepTime--;
 					//create new obstacle position object until no overlapping with snake and other obstacle
 					Position obstacle = new Position();
@@ -248,6 +264,7 @@ namespace Snake
 				{
 					//decrease user score by 50 if user take too long to eat the food
 					//delete the food
+					superFood = false;
 					negativePoints = negativePoints + 50;
 					Console.SetCursorPosition(food.col, food.row);
 					Console.Write(" ");
@@ -274,7 +291,14 @@ namespace Snake
 
 				Console.SetCursorPosition(food.col, food.row);
 				Console.ForegroundColor = ConsoleColor.Yellow;
-				Console.Write("@");
+				if (superFood == true)
+				{
+					Console.Write("$");
+				}
+				else
+				{
+					Console.Write("@");
+				}
 
 				sleepTime -= 0.01;
 

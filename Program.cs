@@ -152,44 +152,72 @@ namespace Snake
 
 				//Displaying the score
 				int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
-				//if (userPoints < 0) userPoints = 0;
+						//if (userPoints < 0) userPoints = 0;
+				Console.SetCursorPosition(0, 0);
+				Console.ForegroundColor = ConsoleColor.White;
 				userPoints = Math.Max(userPoints, 0);
 				if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
 				{
-					Console.SetCursorPosition( 50 , 6); //set to center position
+					string gameover = "Game over!";
+					Console.SetCursorPosition((Console.WindowWidth - gameover.Length) / 2, (Console.WindowHeight / 2) - 4);
 					Console.ForegroundColor = ConsoleColor.Red;
-					Console.WriteLine("Game over!");
-					Console.SetCursorPosition( 45 , 7);
-					Console.WriteLine("Your points are: {0}", userPoints);
+					Console.WriteLine(gameover);
+
+
+
+					string statuspoint = "Your points are {0}";	
+					Console.SetCursorPosition((Console.WindowWidth - statuspoint.Length) / 2, (Console.WindowHeight / 2)- 3);
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine(statuspoint,userPoints);
 					//Asks the user for name then the name and score will be stored in a text file
-					Console.SetCursorPosition( 43 , 8);
-					Console.Write("Enter your name: ");
+					string enternamemsg = "Enter your name: ";
+					Console.SetCursorPosition((Console.WindowWidth - statuspoint.Length) / 2, (Console.WindowHeight / 2) - 2);
+					Console.Write(enternamemsg);
+					Console.ForegroundColor = ConsoleColor.Red;
+
+
 					string name = Console.ReadLine();
 					string LMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", LMsg);
-					Console.SetCursorPosition( 42 , 10);
-					Console.WriteLine("Press enter to exit");
-					Console.ReadLine();
-					return;
-				//If the userPoints is more than 500, then the user wins	
-				}else if(userPoints > 500)
-				{
-					Console.SetCursorPosition( 50 , 6  );
-					Console.ForegroundColor = ConsoleColor.Red;
-					Console.WriteLine("You Win!");
-					Console.SetCursorPosition( 45 , 7  );
-					Console.WriteLine("Your points are: {0}", userPoints);
-					//Asks the user for name then the name and score will be stored in a text file
-					Console.SetCursorPosition( 43 , 8  );
-					Console.Write("Enter your name: ");
-					string name = Console.ReadLine();
-					string WMsg = name + " " + userPoints + "\n";
-					File.AppendAllText("score.txt", WMsg);
-					Console.SetCursorPosition( 42 , 10  );
-					Console.WriteLine("Press enter to exit");
+
+					string exit = "Press enter to exit";
+					Console.SetCursorPosition((Console.WindowWidth -exit.Length) / 2, (Console.WindowHeight / 2) - 1);
+					Console.WriteLine(exit);
 					Console.ReadLine();
 					return;
 
+
+				//If the userPoints is more than 500, then the user wins	
+				}else if(userPoints > 500)
+				{
+
+					string gameover = "You win!";
+					Console.SetCursorPosition((Console.WindowWidth - gameover.Length) / 2, (Console.WindowHeight / 2) - 4);
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine(gameover);
+
+
+
+					string statuspoint = "Your points are {0}";
+					Console.SetCursorPosition((Console.WindowWidth - statuspoint.Length) / 2, (Console.WindowHeight / 2) - 3);
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine(statuspoint, userPoints);
+					//Asks the user for name then the name and score will be stored in a text file
+					string enternamemsg = "Enter your name: ";
+					Console.SetCursorPosition((Console.WindowWidth - statuspoint.Length) / 2, (Console.WindowHeight / 2) - 2);
+					Console.Write(enternamemsg);
+					Console.ForegroundColor = ConsoleColor.Red;
+
+
+					string name = Console.ReadLine();
+					string LMsg = name + " " + userPoints + "\n";
+					File.AppendAllText("score.txt", LMsg);
+
+					string exit = "Press enter to exit";
+					Console.SetCursorPosition((Console.WindowWidth - exit.Length) / 2, (Console.WindowHeight / 2) - 1);
+					Console.WriteLine(exit);
+					Console.ReadLine();
+					return;
 				}
 
 				Console.SetCursorPosition(snakeHead.col, snakeHead.row);

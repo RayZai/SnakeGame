@@ -167,7 +167,7 @@ namespace Snake
 					string name = Console.ReadLine();
 					string LMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", LMsg);
-					Console.SetCursorPosition( 52 , 10);
+					Console.SetCursorPosition( 42 , 10);
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;
@@ -185,7 +185,7 @@ namespace Snake
 					string name = Console.ReadLine();
 					string WMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", WMsg);
-					Console.SetCursorPosition( 52 , 10  );
+					Console.SetCursorPosition( 42 , 10  );
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;

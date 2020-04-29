@@ -32,7 +32,6 @@ namespace Snake
 			myPlayer.PlayLooping();
 
 			//Initializing variables
-			bool superFood = false;
 			byte right = 0;
 			byte left = 1;
 			byte down = 2;
@@ -243,26 +242,11 @@ namespace Snake
 							randomNumbersGenerator.Next(0, Console.WindowWidth));
 					}
 					while (snakeElements.Contains(food) || obstacles.Contains(food));
-					//more point is super food
-					if (superFood == true)
-					{
-						negativePoints -= 200;
-						superFood = false;
-					}
 					//refresh last food eat time timer counter 
 					lastFoodTime = Environment.TickCount;
 					Console.SetCursorPosition(food.col, food.row);
 					Console.ForegroundColor = ConsoleColor.Yellow;
-					int randomNumber = randomNumbersGenerator.Next(0,11);
-					if (randomNumber %2== 0)
-					{
-						superFood = true;
-						Console.Write("$");
-					}
-					else
-					{
-						Console.Write("@");
-					}
+					Console.Write("@");
 					sleepTime--;
 					//create new obstacle position object until no overlapping with snake and other obstacle
 					Position obstacle = new Position();
@@ -319,15 +303,6 @@ namespace Snake
 
 				Console.SetCursorPosition(food.col, food.row);
 				Console.ForegroundColor = ConsoleColor.Yellow;
-				if (superFood == true)
-				{
-					Console.Write("$");
-				}
-				else
-				{
-					Console.Write("@");
-				}
-
 				sleepTime -= 0.01;
 
 				Thread.Sleep((int)sleepTime);

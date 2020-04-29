@@ -156,36 +156,36 @@ namespace Snake
 				userPoints = Math.Max(userPoints, 0);
 				if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
 				{
-					Console.SetCursorPosition( 53 , 14); //set to center position
+					Console.SetCursorPosition( 50 , 6); //set to center position
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Game over!");
-					Console.SetCursorPosition( 50 , 15);
+					Console.SetCursorPosition( 45 , 7);
 					Console.WriteLine("Your points are: {0}", userPoints);
 					//Asks the user for name then the name and score will be stored in a text file
-					Console.SetCursorPosition( 50 , 16);
+					Console.SetCursorPosition( 43 , 8);
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
 					string LMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", LMsg);
-					Console.SetCursorPosition( 50 , 17);
+					Console.SetCursorPosition( 52 , 10);
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;
 				//If the userPoints is more than 500, then the user wins	
 				}else if(userPoints > 500)
 				{
-					Console.SetCursorPosition( 53 , 14  );
+					Console.SetCursorPosition( 50 , 6  );
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("You Win!");
-					Console.SetCursorPosition( 50 , 15  );
+					Console.SetCursorPosition( 45 , 7  );
 					Console.WriteLine("Your points are: {0}", userPoints);
 					//Asks the user for name then the name and score will be stored in a text file
-					Console.SetCursorPosition( 50 , 16  );
+					Console.SetCursorPosition( 43 , 8  );
 					Console.Write("Enter your name: ");
 					string name = Console.ReadLine();
 					string WMsg = name + " " + userPoints + "\n";
 					File.AppendAllText("score.txt", WMsg);
-					Console.SetCursorPosition( 50 , 17  );
+					Console.SetCursorPosition( 52 , 10  );
 					Console.WriteLine("Press enter to exit");
 					Console.ReadLine();
 					return;
